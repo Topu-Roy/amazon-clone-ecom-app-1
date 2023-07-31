@@ -1,8 +1,7 @@
 import React from "react";
 import AmazoneLogo from "../AmazoneLogo";
 
-import { MdOutlineArrowDropDown } from "react-icons/md";
-import { BsSearch } from "react-icons/bs";
+import SearchBar from "./SearchBar";
 
 function NavBar() {
   const submitSearch = () => {};
@@ -17,28 +16,7 @@ function NavBar() {
         </div>
 
         {/* Search Bar */}
-        <form
-          // onSubmit={submitSearch}
-          className="flex-1 group flex items-center bg-white justify-center w-full h-10 rounded-md overflow-hidden"
-        >
-          <span className="text-gray-500 text-sm h-full border-r-2 flex items-center justify-center pl-3">
-            All
-            <span>
-              <MdOutlineArrowDropDown size={25} color={"gray"} />
-            </span>
-          </span>
-          <input
-            type="text"
-            placeholder="Search Product"
-            className="w-full h-10 px-2 placeholder:text-sm placeholder:text-gray-400 focus:outline-none group-focus:outline-2 group-focus:outline-yellow-600"
-          />
-          <button
-            type="submit"
-            className="px-4 h-full bg-yellow-600/80 hover:bg-yellow-600"
-          >
-            <BsSearch size={20} color={"black"} />
-          </button>
-        </form>
+        <SearchBar />
 
         {/* Profile , Favorite & Cart */}
         <div className="flex items-center justify-between gap-4">
