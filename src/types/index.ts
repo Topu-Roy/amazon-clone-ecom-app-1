@@ -24,6 +24,12 @@ export interface ProductType {
   };
 }
 
+// * Product Cart Props
+
+export interface ProductCardProps {
+  shorten: boolean;
+}
+
 export interface SingleProductType {
   product: ProductType;
 }
