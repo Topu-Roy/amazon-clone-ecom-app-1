@@ -4,6 +4,7 @@ import { BsPerson } from "react-icons/bs";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
 import { SlLocationPin } from "react-icons/sl";
+import { CartCount, FavoritesCount } from "./ItemCount";
 
 function NavBar() {
   const submitSearch = () => {};
@@ -40,7 +41,7 @@ function NavBar() {
           <div className="flex relative items-center justify-center gap-2 hover:ring-1 ring-white">
             <span className="absolute font-semibold p-0.5 text-xs left-[15%] -top-[45%] bg-slate-200 rounded-full text-gray-700 h-5 w-5 aspect-square flex items-center justify-center">
               {/* {cartItemCount > 99 ? "99+" : cartItemCount} */}
-              12
+              <FavoritesCount />
             </span>
             <MdOutlineFavoriteBorder size={25} color={"#e3d4d3"} />
             <p className="">Favorites</p>
@@ -48,7 +49,7 @@ function NavBar() {
           <div className="flex relative items-center justify-center gap-2 hover:ring-1 ring-white">
             <span className="absolute font-semibold p-0.5 text-xs left-[25%] -top-[45%] bg-slate-200 rounded-full text-gray-700 h-5 w-5 aspect-square flex items-center justify-center">
               {/* {cartItemCount > 99 ? "99+" : cartItemCount} */}
-              12
+              <CartCount />
             </span>
             <FiShoppingCart size={23} color={"#e3d4d3"} />
             <p className="">Cart</p>

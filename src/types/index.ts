@@ -36,3 +36,9 @@ export interface FavoritesStateTypes {
   products: SingleProductType[];
   addToFavorites: (product: SingleProductType) => void;
 }
+
+// * Navigation Bar
+
+export interface ItemCountType {
+  type: "Favorites" | "Cart";
+}
