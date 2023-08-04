@@ -23,3 +23,16 @@ export interface ProductType {
     count: number;
   };
 }
+
+export interface SingleProductType {
+  product: ProductType;
+}
+
+export interface CartStateTypes {
+  products: SingleProductType[];
+  addToCart: (product: SingleProductType) => void;
+}
+export interface FavoritesStateTypes {
+  products: SingleProductType[];
+  addToFavorites: (product: SingleProductType) => void;
+}

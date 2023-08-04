@@ -1,4 +1,4 @@
-import { Headline } from "@/components";
+import { Headline, AddToCart, AddToFavorite } from "@/components";
 import { SearchParams } from "@/types";
 import { fetchOneProduct } from "@/utils/products";
 import Image from "next/image";
@@ -63,15 +63,15 @@ async function page({ searchParams }: { searchParams: SearchParams }) {
 
           {/* buttons */}
           <div className="flex w-full items-center justify-between gap-4">
-            <button className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
-              Add To Favorite
-            </button>
-            <button className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
-              Add To Cart
-            </button>
-            <button className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
+            <div className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
+              <AddToFavorite product={product} />
+            </div>
+            <div className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
+              <AddToCart product={product} />
+            </div>
+            <div className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
               Buy Now
-            </button>
+            </div>
           </div>
         </div>
       </div>

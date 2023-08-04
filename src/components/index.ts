@@ -1,5 +1,7 @@
 import AmazoneLogo from "./AmazoneLogo";
 import Headline from "./Headline";
+import AddToCart from "./buttons/AddToCart";
+import AddToFavorite from "./buttons/AddToFavorite";
 import NavBar from "./navbar/NavBar";
 
-export { NavBar, AmazoneLogo, Headline };
+export { NavBar, AmazoneLogo, Headline, AddToCart, AddToFavorite };

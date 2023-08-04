@@ -61,3 +61,18 @@ function Carousal() {
 }
 
 export default Carousal;
+
+// * From Home Page
+// ! not working
+
+// import Carousal from "./Carousal";
+
+// const images: string[] = [
+//   "/carousal (5).jpg",
+//   "/carousal (4).jpg",
+//   "/carousal (2).jpg",
+//   "/carousal (1).jpg",
+//   "/carousal (3).jpg",
+// ];
+
+/* <Carousal images={images} /> */
