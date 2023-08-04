@@ -2,6 +2,7 @@ import { Headline } from "@/components";
 import { ProductType } from "@/types";
 import { allProducts } from "@/utils/products";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { MdOutlineStarRate } from "react-icons/md";
 
@@ -29,15 +30,21 @@ async function HomePage() {
               decimalPrice.length == 1 ? "00" : decimalPrice;
 
             return (
-              <div className="h-80 p-2 bg-white rounded-lg flex flex-col justify-between hover:shadow-2xl hover:cursor-pointer">
+              <Link
+                href={{
+                  pathname: `/${item.id}`,
+                  query: { slug: item.title, id: item.id },
+                }}
+                className="h-80 p-2 bg-white rounded-lg flex flex-col justify-between hover:shadow-2xl hover:cursor-pointer"
+              >
                 <div>
-                  <div className="flex h-44 w-auto overflow-hidden items-center justify-center mx-auto rounded-lg">
+                  <div className="flex h-44 overflow-hidden items-start justify-center mx-auto rounded-lg">
                     <Image
                       alt={item.title}
                       src={item.image}
                       width={500}
                       height={500}
-                      className="bg-contain"
+                      style={{ objectFit: "contain" }}
                     />
                   </div>
 
@@ -76,7 +83,7 @@ async function HomePage() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

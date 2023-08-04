@@ -2,8 +2,14 @@ export interface ImageType {
   images: string[];
 }
 
+export interface SearchParams {
+  slug: string;
+  id: string;
+}
+
 export interface HeadlineProps {
   text: string;
+  className?: string;
 }
 export interface ProductType {
   id: number;
