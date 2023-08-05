@@ -6,11 +6,17 @@ import { addToButtonType } from "@/types";
 
 function AddToFavorite({ product, className }: addToButtonType) {
   const router = useRouter();
-  const { addToFavorites } = useFavoritesStore();
+  const { addToFavorites, products } = useFavoritesStore();
 
   const handleClick = () => {
-    addToFavorites(product);
     router.push("/favorites");
+    products.map((item) => {
+      if (item.id === product.id) {
+        alert("item already exists");
+        return;
+      }
+      addToFavorites(product);
+    });
   };
 
   return (

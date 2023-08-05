@@ -9,16 +9,17 @@ async function page({ searchParams }: { searchParams: SearchParams }) {
   const { id } = searchParams;
 
   const product = await fetchOneProduct(Number(id));
+  const { title, description, category, image, price, rating } = product;
 
   return (
     <div className="container mx-auto bg-slate-200 rounded-md my-4 px-2 py-2">
-      <Headline className={"capitalize"} text={product.category} />
+      <Headline className={"capitalize"} text={category} />
       <div className="flex items-start gap-2">
         <div className="flex-1 bg-white rounded-xl">
           <div className="flex h-full w-full overflow-hidden items-center justify-center">
             <Image
-              alt={product.title}
-              src={product.image}
+              alt={title}
+              src={image}
               width={500}
               height={500}
               className="bg-contain"
@@ -28,11 +29,11 @@ async function page({ searchParams }: { searchParams: SearchParams }) {
         <div className="flex-1 h-[35rem] flex items-start justify-between flex-col bg-white rounded-xl p-4">
           {/* details */}
           <div className="flex-1 flex justify-between items-start flex-col gap-1">
-            <p className="pt-2 mb-4 text-lg font-medium">{product.title}</p>
+            <p className="pt-2 mb-4 text-lg font-medium">{title}</p>
 
             {/* description container */}
             <div className="flex-1 bg-slate-200 w-full p-2 rounded-md overflow-y-scroll">
-              <p className="text-sm text-gray-700">{product.description}</p>
+              <p className="text-sm text-gray-700">{description}</p>
             </div>
 
             {/* price and rating container */}
@@ -40,7 +41,7 @@ async function page({ searchParams }: { searchParams: SearchParams }) {
               {/* price */}
               <p className="flex justify-center items-end gap-2 text-gray-700">
                 <span className="font-medium">Price:</span>
-                <span className="text-2xl font-bold ">${product.price}</span>
+                <span className="text-2xl font-bold ">${price}</span>
               </p>
 
               {/* rating */}
@@ -51,12 +52,8 @@ async function page({ searchParams }: { searchParams: SearchParams }) {
                   color={"#dba51d"}
                   className="mb-0.5"
                 />
-                <span className="text-xl font-semibold">
-                  {product.rating.rate}
-                </span>
-                <span className="font-medium text-sm">
-                  ({product.rating.count})
-                </span>
+                <span className="text-xl font-semibold">{rating.rate}</span>
+                <span className="font-medium text-sm">({rating.count})</span>
               </p>
             </div>
           </div>

@@ -1,18 +1,11 @@
-import { SingleProductType } from "@/types";
+import { ProductCardProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { MdOutlineStarRate } from "react-icons/md";
 
-function ProductCart({
-  product,
-  isCompact,
-}: {
-  product: SingleProductType;
-  isCompact: boolean;
-}) {
-  const { title, description, image, category, id, price, rating } =
-    product.product;
+function ProductCart({ product, shorten }: ProductCardProps) {
+  const { title, description, image, id, price, rating } = product;
 
   const splitPrice = price.toString().split(".");
 
@@ -40,7 +33,7 @@ function ProductCart({
         </div>
 
         <p className="pt-2 text-lg font-medium">
-          {isCompact
+          {shorten
             ? title.length > 25
               ? title.slice(0, 25) + "..."
               : title
@@ -48,7 +41,7 @@ function ProductCart({
         </p>
 
         <p className="text-sm text-gray-700">
-          {isCompact
+          {shorten
             ? description.length > 25
               ? description.slice(0, 25) + "..."
               : description

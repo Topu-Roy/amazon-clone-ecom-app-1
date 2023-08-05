@@ -1,16 +1,3 @@
-export interface ImageType {
-  images: string[];
-}
-
-export interface SearchParams {
-  slug: string;
-  id: string;
-}
-
-export interface HeadlineProps {
-  text: string;
-  className?: string;
-}
 export interface ProductType {
   id: number;
   title: string;
@@ -24,9 +11,24 @@ export interface ProductType {
   };
 }
 
+export interface ImageType {
+  images: string[];
+}
+
+export interface SearchParams {
+  slug: string;
+  id: string;
+}
+
+export interface HeadlineProps {
+  text: string;
+  className?: string;
+}
+
 // * Product Cart Props
 
 export interface ProductCardProps {
+  product: ProductType;
   shorten: boolean;
 }
 

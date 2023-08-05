@@ -12,9 +12,13 @@ function page() {
         <Headline text="Favorites" />
 
         <div className="grid grid-cols-3 gap-2">
-          {products.map((product) => (
-            <ProductCart product={product} isCompact={false} />
-          ))}
+          {products.length === 0 ? (
+            <div className="">No Items Found</div>
+          ) : (
+            products.map((product) => (
+              <ProductCart product={product} shorten={false} />
+            ))
+          )}
         </div>
       </div>
     </>
