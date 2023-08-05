@@ -30,17 +30,19 @@ export interface ProductCardProps {
   shorten: boolean;
 }
 
-export interface SingleProductType {
+// * Add To Cart & Add To Favorites Button Component
+export interface addToButtonType {
   product: ProductType;
+  className?: string;
 }
 
 export interface CartStateTypes {
-  products: SingleProductType[];
-  addToCart: (product: SingleProductType) => void;
+  products: ProductType[];
+  addToCart: (product: ProductType) => void;
 }
 export interface FavoritesStateTypes {
-  products: SingleProductType[];
-  addToFavorites: (product: SingleProductType) => void;
+  products: ProductType[];
+  addToFavorites: (product: ProductType) => void;
 }
 
 // * Navigation Bar

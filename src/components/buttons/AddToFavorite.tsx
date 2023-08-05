@@ -2,9 +2,9 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useFavoritesStore } from "@/zustand/Favorites";
-import { SingleProductType } from "@/types";
+import { addToButtonType } from "@/types";
 
-function AddToFavorite(product: SingleProductType) {
+function AddToFavorite({ product, className }: addToButtonType) {
   const router = useRouter();
   const { addToFavorites } = useFavoritesStore();
 
@@ -13,7 +13,11 @@ function AddToFavorite(product: SingleProductType) {
     router.push("/favorites");
   };
 
-  return <button onClick={handleClick}>Add To Favorites</button>;
+  return (
+    <button className={`${className}`} onClick={handleClick}>
+      Add To Favorites
+    </button>
+  );
 }
 
 export default AddToFavorite;

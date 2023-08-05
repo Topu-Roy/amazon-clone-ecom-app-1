@@ -64,7 +64,7 @@ async function page({ searchParams }: { searchParams: SearchParams }) {
           {/* buttons */}
           <div className="flex w-full items-center justify-between gap-4">
             <div className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
-              <AddToFavorite product={product} />
+              <AddToFavorite product={product} className={""} />
             </div>
             <div className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
               <AddToCart product={product} />
