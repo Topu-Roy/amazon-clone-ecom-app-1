@@ -6,11 +6,17 @@ import React from "react";
 
 function AddToCart({ product, className }: addToButtonType) {
   const router = useRouter();
-  const { addToCart } = useCartStore();
+  const { addToCart, products } = useCartStore();
 
   const handelClick = () => {
-    addToCart(product);
-    router.push("/cart");
+    const isExist = products.includes(product);
+
+    if (!isExist) {
+      addToCart(product);
+      router.push("/cart");
+    } else {
+      alert("Cart already exists");
+    }
   };
 
   return (

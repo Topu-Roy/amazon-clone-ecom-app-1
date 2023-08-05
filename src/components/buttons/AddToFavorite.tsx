@@ -9,14 +9,14 @@ function AddToFavorite({ product, className }: addToButtonType) {
   const { addToFavorites, products } = useFavoritesStore();
 
   const handleClick = () => {
-    router.push("/favorites");
-    products.map((item) => {
-      if (item.id === product.id) {
-        alert("item already exists");
-        return;
-      }
+    const isExist = products.includes(product);
+
+    if (!isExist) {
       addToFavorites(product);
-    });
+      router.push("/favorites");
+    } else {
+      alert("Favorites already exists");
+    }
   };
 
   return (
