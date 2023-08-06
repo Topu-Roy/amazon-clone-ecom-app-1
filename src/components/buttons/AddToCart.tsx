@@ -8,22 +8,24 @@ import React, { useState } from "react";
 function AddToCart({ product, className, text, textIfAdded }: addToButtonType) {
   const router = useRouter();
   const { addToCart, removeFromCart, products } = useCartStore();
-  const [isAddedToCart, setIsAddedToCart] = useState(() =>
-    products.includes(product)
-  );
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const handelClick = () => {
     if (isAddedToCart) {
       removeFromCart(product.id);
-      setIsAddedToCart((prev) => !prev);
+      setIsAddedToCart(false);
       alert("Removed product from cart");
     } else {
       addToCart(product);
-      setIsAddedToCart((prev) => !prev);
+      setIsAddedToCart(true);
       router.push("/cart");
       alert("Added to cart");
     }
   };
+
+  React.useEffect(() => {
+    setIsAddedToCart(products.includes(product));
+  }, []);
 
   return (
     <button className={`${className}`} onClick={handelClick}>

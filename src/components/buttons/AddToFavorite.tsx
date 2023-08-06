@@ -1,27 +1,39 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useFavoritesStore } from "@/zustand/Favorites";
 import { addToButtonType } from "@/types";
 
-function AddToFavorite({ product, className, text }: addToButtonType) {
+function AddToFavorite({
+  product,
+  className,
+  textIfAdded,
+  text,
+}: addToButtonType) {
   const router = useRouter();
-  const { addToFavorites, products } = useFavoritesStore();
+  const { addToFavorites, removeFromFavorites, products } = useFavoritesStore();
+  const [isAddedToFavorites, setIsAddedToFavorites] = useState(false);
 
   const handleClick = () => {
-    const isExist = products.includes(product);
-
-    if (!isExist) {
-      addToFavorites(product);
-      router.push("/favorites");
+    if (isAddedToFavorites) {
+      removeFromFavorites(product.id);
+      setIsAddedToFavorites(false);
+      alert("Remove from favorites");
     } else {
-      alert("Favorites already exists");
+      addToFavorites(product);
+      setIsAddedToFavorites(true);
+      alert("Added to favorites");
+      router.push("/favorites");
     }
   };
 
+  React.useEffect(() => {
+    setIsAddedToFavorites(products.includes(product));
+  }, []);
+
   return (
     <button className={`${className}`} onClick={handleClick}>
-      {text}
+      {isAddedToFavorites ? textIfAdded : text}
     </button>
   );
 }

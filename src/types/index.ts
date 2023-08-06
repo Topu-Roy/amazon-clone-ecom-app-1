@@ -48,6 +48,7 @@ export interface CartStateTypes {
 export interface FavoritesStateTypes {
   products: ProductType[];
   addToFavorites: (product: ProductType) => void;
+  removeFromFavorites: (id: number) => void;
 }
 
 // * Navigation Bar

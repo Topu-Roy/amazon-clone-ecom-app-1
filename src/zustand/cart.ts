@@ -7,9 +7,14 @@ export const useCartStore = create<CartStateTypes>()(
     (set) => ({
       products: [],
       addToCart: (product) => {
-        set((state) => ({
-          products: [...state.products, product],
-        }));
+        set((state) => {
+          if (!state.products.some((item) => item.id === product.id)) {
+            return {
+              products: [...state.products, product],
+            };
+          }
+          return state;
+        });
       },
       removeFromCart: (id) => {
         set((state) => ({
