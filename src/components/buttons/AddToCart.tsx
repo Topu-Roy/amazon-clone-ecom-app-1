@@ -1,27 +1,33 @@
 "use client";
+
 import { addToButtonType } from "@/types";
 import { useCartStore } from "@/zustand/cart";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 
-function AddToCart({ product, className }: addToButtonType) {
+function AddToCart({ product, className, text, textIfAdded }: addToButtonType) {
   const router = useRouter();
-  const { addToCart, products } = useCartStore();
+  const { addToCart, removeFromCart, products } = useCartStore();
+  const [isAddedToCart, setIsAddedToCart] = useState(() =>
+    products.includes(product)
+  );
 
   const handelClick = () => {
-    const isExist = products.includes(product);
-
-    if (!isExist) {
-      addToCart(product);
-      router.push("/cart");
+    if (isAddedToCart) {
+      removeFromCart(product.id);
+      setIsAddedToCart((prev) => !prev);
+      alert("Removed product from cart");
     } else {
-      alert("Cart already exists");
+      addToCart(product);
+      setIsAddedToCart((prev) => !prev);
+      router.push("/cart");
+      alert("Added to cart");
     }
   };
 
   return (
     <button className={`${className}`} onClick={handelClick}>
-      Add To Cart
+      {isAddedToCart ? textIfAdded : text}
     </button>
   );
 }

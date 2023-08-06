@@ -36,11 +36,14 @@ export interface ProductCardProps {
 export interface addToButtonType {
   product: ProductType;
   className?: string;
+  text: string;
+  textIfAdded: string;
 }
 
 export interface CartStateTypes {
   products: ProductType[];
   addToCart: (product: ProductType) => void;
+  removeFromCart: (id: number) => void;
 }
 export interface FavoritesStateTypes {
   products: ProductType[];

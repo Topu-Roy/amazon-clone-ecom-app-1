@@ -13,7 +13,7 @@ function NavBar() {
   // const [cartItemCount, setCartItemCount] = useState(10);
 
   return (
-    <header className=" mx-auto bg-gray-800 text-white">
+    <header className="sticky inset-0 mx-auto bg-gray-800 text-white">
       <nav className="flex justify-between items-center container mx-auto gap-4 h-14 px-2">
         {/* Logo & Location */}
         <div className="flex items-center justify-between gap-4">

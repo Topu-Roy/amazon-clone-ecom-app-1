@@ -8,11 +8,11 @@ function CartPage() {
   return (
     <>
       <div className="container mx-auto bg-slate-200 rounded-md my-4 px-2 py-2">
-        <Headline text="Favorites" />
+        <Headline text="Cart" />
 
         <div className="grid grid-cols-3 gap-2">
           {products.map((product) => (
-            <ProductCart product={product} isCompact={false} />
+            <ProductCart product={product} shorten={false} />
           ))}
         </div>
       </div>

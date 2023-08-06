@@ -13,7 +13,7 @@ async function page({ searchParams }: { searchParams: SearchParams }) {
 
   return (
     <div className="container mx-auto bg-slate-200 rounded-md my-4 px-2 py-2">
-      <Headline className={"capitalize"} text={category} />
+      <Headline className={"capitalize"} text={`${category}`} />
       <div className="flex items-start gap-2">
         <div className="flex-1 bg-white rounded-xl">
           <div className="flex h-full w-full overflow-hidden items-center justify-center">
@@ -41,7 +41,9 @@ async function page({ searchParams }: { searchParams: SearchParams }) {
               {/* price */}
               <p className="flex justify-center items-end gap-2 text-gray-700">
                 <span className="font-medium">Price:</span>
-                <span className="text-2xl font-bold ">${price}</span>
+                <span className="text-2xl font-bold text-orange-500">
+                  ${price}
+                </span>
               </p>
 
               {/* rating */}
@@ -60,13 +62,23 @@ async function page({ searchParams }: { searchParams: SearchParams }) {
 
           {/* buttons */}
           <div className="flex w-full items-center justify-between gap-4">
-            <div className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
-              <AddToFavorite product={product} className={""} />
+            <div className="flex items-center justify-center flex-1">
+              <AddToFavorite
+                product={product}
+                text={"Add To Favorites"}
+                textIfAdded={"Remove From Favorites"}
+                className={"bg-slate-400 rounded-xl h-20 w-full"}
+              />
             </div>
-            <div className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
-              <AddToCart product={product} />
+            <div className="flex items-center justify-center flex-1 bg-slate-400 rounded-xl">
+              <AddToCart
+                product={product}
+                text={"Add To Cart"}
+                textIfAdded={"Remove From Cart"}
+                className={"bg-slate-400 rounded-xl h-20 w-full"}
+              />
             </div>
-            <div className="flex items-center justify-center h-20 flex-1 bg-slate-400 rounded-xl">
+            <div className="flex items-center justify-center flex-1 h-20 bg-slate-400 rounded-xl w-full">
               Buy Now
             </div>
           </div>

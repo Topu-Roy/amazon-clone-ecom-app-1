@@ -1,4 +1,4 @@
-import { CartStateTypes, ProductType } from "@/types";
+import { CartStateTypes } from "@/types";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -6,9 +6,14 @@ export const useCartStore = create<CartStateTypes>()(
   persist(
     (set) => ({
       products: [],
-      addToCart: (product: ProductType) => {
+      addToCart: (product) => {
         set((state) => ({
           products: [...state.products, product],
+        }));
+      },
+      removeFromCart: (id) => {
+        set((state) => ({
+          products: state.products.filter((product) => product.id !== id),
         }));
       },
     }),

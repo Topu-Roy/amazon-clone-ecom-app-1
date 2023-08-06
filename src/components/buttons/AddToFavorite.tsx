@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useFavoritesStore } from "@/zustand/Favorites";
 import { addToButtonType } from "@/types";
 
-function AddToFavorite({ product, className }: addToButtonType) {
+function AddToFavorite({ product, className, text }: addToButtonType) {
   const router = useRouter();
   const { addToFavorites, products } = useFavoritesStore();
 
@@ -21,7 +21,7 @@ function AddToFavorite({ product, className }: addToButtonType) {
 
   return (
     <button className={`${className}`} onClick={handleClick}>
-      Add To Favorites
+      {text}
     </button>
   );
 }
